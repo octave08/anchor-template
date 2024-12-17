@@ -7,14 +7,15 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": ["node_modules"],
+    "include": ["**/*.ts", "**/*.js", "**/*.json", "**/*.mjs"]
   },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 80,
-    "ignore": ["node_modules", "target"]
+    "ignore": ["node_modules", "target", ".anchor"]
   },
   "organizeImports": {
     "enabled": true
