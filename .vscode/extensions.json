@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "redhat.vscode-yaml",
+    "1YiB.rust-bundle"
+  ],
+  "unwantedRecommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}
