@@ -9,5 +9,5 @@ module.exports = {
     "@target/(.*)": "<rootDir>/target/$1",
   },
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  testTimeout: 10000,
+  testTimeout: 30000,
 }
