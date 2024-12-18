@@ -5,7 +5,8 @@
     "format": "biome format",
     "build": "RUSTUP_TOOLCHAIN=\"nightly-2024-11-19\" anchor build",
     "test": "RUSTUP_TOOLCHAIN=\"nightly-2024-11-19\" anchor test",
-    "keys": "RUSTUP_TOOLCHAIN=\"nightly-2024-11-19\" anchor keys list"
+    "keys": "RUSTUP_TOOLCHAIN=\"nightly-2024-11-19\" anchor keys list",
+    "keys:sync": "RUSTUP_TOOLCHAIN=\"nightly-2024-11-19\" anchor keys sync"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.30.1",
