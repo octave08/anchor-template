@@ -1,5 +1,8 @@
 use anchor_lang::prelude::*;
 
+mod constants;
+
+
 declare_id!("2gVBXBHTYKC9HCbCPk7uLjDrY6MvHW5K5NttBS6gSAwn");
 
 #[program]
@@ -22,7 +25,7 @@ pub mod hello_anchor {
 */
 #[derive(Accounts)]
 pub struct Initialize<'info> {
-    #[account(init, payer = signer, space = 8 + 8)]
+    #[account(init, payer = signer, space = constants::ANCHOR_DISCRIMINATOR + 8)]
     pub new_account: Account<'info, NewAccount>,
     #[account(mut)]
     pub signer: Signer<'info>,
