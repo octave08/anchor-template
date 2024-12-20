@@ -16,6 +16,10 @@ pub mod hello_anchor {
     }
 }
 
+/* 
+    the Accounts struct is typically named the same thing as the instruction handler, just in TitleCase. 
+    Eg, the struct with the accounts for add_movie_review() is called AddMovieReview!
+*/
 #[derive(Accounts)]
 pub struct Initialize<'info> {
     #[account(init, payer = signer, space = 8 + 8)]
