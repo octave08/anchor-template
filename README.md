@@ -2,7 +2,8 @@
 
 ## Features
 
-- 🛠️ Code Linter and Formatter with Biome
+- 🛠️ Code Linter and Formatter with Biome for TypeScript
+- 🔧 Code Formatter with rustfmt for Rust
 - 🧪 Integration Testing with Jest & anchor-bankrun
 
 

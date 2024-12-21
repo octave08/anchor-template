@@ -13,9 +13,9 @@ declare_id!("2gVBXBHTYKC9HCbCPk7uLjDrY6MvHW5K5NttBS6gSAwn");
 
 #[program]
 pub mod hello_anchor {
-    use super::*;
+  use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>, data: u64) -> Result<()> {
-        instructions::initialize(ctx, data)
-    }
+  pub fn initialize(ctx: Context<Initialize>, data: u64) -> Result<()> {
+    instructions::initialize(ctx, data)
+  }
 }
