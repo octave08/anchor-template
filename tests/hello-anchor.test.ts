@@ -32,9 +32,7 @@ describe("hello-anchor", () => {
       .signers([newKeypair])
       .rpc()
 
-    const newAccount = await program.account.newAccount.fetch(
-      newKeypair.publicKey,
-    )
+    const newAccount = await program.account.memo.fetch(newKeypair.publicKey)
 
     console.log("Your transaction signature:", tx)
     console.log("On-chain data is:", newAccount.data.toString())
