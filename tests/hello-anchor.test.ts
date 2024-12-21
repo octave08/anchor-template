@@ -1,4 +1,10 @@
-import { BN, Program, type Wallet, setProvider } from "@coral-xyz/anchor"
+import {
+  AnchorError,
+  BN,
+  Program,
+  type Wallet,
+  setProvider,
+} from "@coral-xyz/anchor"
 import type { HelloAnchor } from "@target/types/hello_anchor"
 import { BankrunProvider } from "anchor-bankrun"
 import { startAnchor } from "solana-bankrun"
@@ -21,7 +27,7 @@ describe("hello-anchor", () => {
 
   test("initialize", async () => {
     const newKeypair = new Keypair()
-    const data = new BN(42)
+    const data = "Hello, Anchor!"
 
     const tx = await program.methods
       .initialize(data)
@@ -37,6 +43,31 @@ describe("hello-anchor", () => {
     console.log("Your transaction signature:", tx)
     console.log("On-chain data is:", newAccount.data.toString())
 
-    expect(newAccount.data.eq(data)).toBeTruthy()
+    expect(newAccount.data).toBe(data)
+  })
+
+  test("initialize with invalid data", async () => {
+    const newKeypair = new Keypair()
+    const data = "Hel"
+
+    try {
+      await program.methods
+        .initialize(data)
+        .accounts({
+          newAccount: newKeypair.publicKey,
+          signer: wallet.publicKey,
+        })
+        .signers([newKeypair])
+        .rpc()
+
+      throw new Error("Expected transaction to fail, but it succeeded.")
+    } catch (error) {
+      if (error instanceof AnchorError) {
+        expect(error.error.errorCode.code).toBe("InvalidMemo")
+        return
+      }
+
+      throw new Error("Expected AnchorError, but got something else.")
+    }
   })
 })

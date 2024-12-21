@@ -15,11 +15,11 @@ pub struct Initialize<'info> {
   pub system_program: Program<'info, System>,
 }
 
-pub fn initialize(ctx: Context<Initialize>, data: u64) -> Result<()> {
+pub fn initialize(ctx: Context<Initialize>, data: String) -> Result<()> {
   msg!("Greetings from: {:?}", ctx.program_id);
 
   ctx.accounts.new_account.data = data;
-  msg!("Changed data to: {}!", data);
+
   msg!(
     "Account created with data: {}!",
     ctx.accounts.new_account.data
